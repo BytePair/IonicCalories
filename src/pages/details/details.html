@@ -1,0 +1,86 @@
+<ion-header no-border>
+    <ion-navbar></ion-navbar>
+</ion-header>
+
+<ion-content fullscreen="true" text-center class="{{settingsService.settings.color_setting}}">
+
+
+    <ion-list>
+        <h1>Details</h1>
+    </ion-list>
+
+
+    <!-- Sex -->
+
+    <ion-list radio-group [(ngModel)]="calorieCalculatorService.user.sex" (ngModelChange)="updateDirectly()">
+        <ion-item no-lines>
+            <ion-icon name="male" item-start color="{{settingsService.settings.color_setting}}"></ion-icon>
+            <ion-label>Male</ion-label>
+            <ion-radio value="male"></ion-radio>
+        </ion-item>
+        <ion-item no-lines>
+            <ion-icon name="female" item-start color="{{settingsService.settings.color_setting}}"></ion-icon>
+            <ion-label>Female</ion-label>
+            <ion-radio value="female"></ion-radio>
+        </ion-item>
+    </ion-list>
+
+
+    <!-- Age -->
+    <ion-list class="{{settingsService.settings.color_setting}}">
+        <ion-item>
+            <ion-label color="{{settingsService.settings.color_setting}}">Age</ion-label>
+            <ion-select class="details-selector"  interface="popover" [(ngModel)]="calorieCalculatorService.user.age"  (ngModelChange)="updateDirectly()">
+                <ion-option *ngFor="let age of ages" value="{{age}}">{{age}}</ion-option>
+            </ion-select>
+        </ion-item>
+    </ion-list>
+
+
+    <!-- Height -->
+    <ion-list *ngIf="settingsService.settings.height_setting == 'imperial'">
+        <ion-item no-lines>
+            <ion-label color="{{settingsService.settings.color_setting}}">Height</ion-label>
+            <ion-select class="details-selector"  interface="popover" [(ngModel)]="height_in_feet" (ngModelChange)="updateHeight()">
+                <ion-option *ngFor="let ft of feet" value="{{ft}}">{{ft}} feet</ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item no-lines>
+            <ion-label color="{{settingsService.settings.color_setting}}"></ion-label>
+            <ion-select class="details-selector"  interface="popover" [(ngModel)]="height_in_inches" (ngModelChange)="updateHeight()">
+                <ion-option *ngFor="let inch of inches" value="{{inch}}">{{inch}} inches</ion-option>
+            </ion-select>
+        </ion-item>
+    </ion-list>
+
+    <ion-list *ngIf="settingsService.settings.height_setting == 'metric'">
+        <ion-item no-lines>
+            <ion-label color="{{settingsService.settings.color_setting}}">Height</ion-label>
+            <ion-select class="details-selector"  interface="popover" [(ngModel)]="calorieCalculatorService.user.mHeight" (ngModelChange)="updateHeight()">
+                <ion-option *ngFor="let cm of cms" value="{{cm}}">{{cm}} cms</ion-option>
+            </ion-select>
+        </ion-item>
+    </ion-list>
+
+
+    <!-- Weight -->
+
+    <ion-list *ngIf="settingsService.settings.weight_setting == 'imperial'">
+        <ion-item>
+            <ion-label color="{{settingsService.settings.color_setting}}">Weight</ion-label>
+            <ion-select class="details-selector"  interface="popover" [(ngModel)]="calorieCalculatorService.user.iWeight" (ngModelChange)="updateWeight()">
+                <ion-option *ngFor="let weight of weights" value="{{weight}}">{{weight}} lbs</ion-option>
+            </ion-select>
+        </ion-item>
+    </ion-list>
+
+    <ion-list *ngIf="settingsService.settings.weight_setting == 'metric'">
+        <ion-item>
+            <ion-label color="{{settingsService.settings.color_setting}}">Weight</ion-label>
+            <ion-select class="details-selector"  interface="popover" [(ngModel)]="calorieCalculatorService.user.mWeight" (ngModelChange)="updateWeight()">
+                <ion-option *ngFor="let kg of kgs" value="{{kg}}">{{kg}} kgs</ion-option>
+            </ion-select>
+        </ion-item>
+    </ion-list>
+
+</ion-content>

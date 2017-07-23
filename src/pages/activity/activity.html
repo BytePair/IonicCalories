@@ -1,0 +1,42 @@
+<ion-header no-border>
+    <ion-navbar></ion-navbar>
+</ion-header>
+
+<ion-content fullscreen="true" class="{{settingsService.settings.color_setting}}" padding text-center>
+
+    <ion-list>
+        <h1>Activity Level</h1>
+    </ion-list>
+
+    <!-- Activity Level -->
+
+    <ion-list radio-group [(ngModel)]="calorieCalculatorService.user.activityLevel" (ngModelChange)="updateActivity()">
+        <ion-item no-lines>
+            <ion-icon name="male" item-start color="{{settingsService.settings.color_setting}}"></ion-icon>
+            <ion-label>Sedentary<br><small>little or no exercise</small></ion-label>
+            <ion-radio value=1.2></ion-radio>
+        </ion-item>
+        <ion-item no-lines>
+            <ion-icon name="male" item-start color="{{settingsService.settings.color_setting}}"></ion-icon>
+            <ion-label>Lightly Active<br><small>light exercise/sports<br>1-3 days/week</small></ion-label>
+            <ion-radio value=1.375></ion-radio>
+        </ion-item>
+        <ion-item no-lines>
+            <ion-icon name="male" item-start color="{{settingsService.settings.color_setting}}"></ion-icon>
+            <ion-label>Moderately Active<br><small>moderate exercise/sports<br>3-5 days/week</small></ion-label>
+            <ion-radio value=1.55></ion-radio>
+        </ion-item>
+        <ion-item no-lines>
+            <ion-icon name="male" item-start color="{{settingsService.settings.color_setting}}"></ion-icon>
+            <ion-label>Very Active<br><small>hard exercise/sports<br>6-7 days a week</small></ion-label>
+            <ion-radio value=1.725></ion-radio>
+        </ion-item>
+        <ion-item no-lines>
+            <ion-icon name="male" item-start color="{{settingsService.settings.color_setting}}"></ion-icon>
+            <ion-label>Extra Active<br><small>very active plus a physical job<br>or twice a day training</small></ion-label>
+            <ion-radio value=1.9></ion-radio>
+        </ion-item>
+    </ion-list>
+
+
+</ion-content>

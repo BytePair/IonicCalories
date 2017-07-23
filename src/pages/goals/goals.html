@@ -1,0 +1,60 @@
+<ion-header no-border>
+    <ion-navbar></ion-navbar>
+</ion-header>
+
+<ion-content fullscreen="true" padding class="{{settingsService.settings.color_setting}} goals-content" text-center>
+
+
+    <ion-list>
+        <h1>Goal</h1>
+    </ion-list>
+
+
+    <!-- Choose to lose or gain wait -->
+
+    <ion-list radio-group [(ngModel)]="loseWeight" (ngModelChange)="changeGoal()">
+        <ion-item no-lines>
+            <ion-icon name="trending-down" item-start color="{{settingsService.settings.color_setting}}"></ion-icon>
+            <ion-label>Lose Weight</ion-label>
+            <ion-radio value=true></ion-radio>
+        </ion-item>
+        <ion-item no-lines>
+            <ion-icon name="trending-up" item-start color="{{settingsService.settings.color_setting}}"></ion-icon>
+            <ion-label>Gain Weight</ion-label>
+            <ion-radio value=false></ion-radio>
+        </ion-item>
+    </ion-list>
+
+    <ion-list>
+        <ion-item-divider color="{{settingsService.settings.color_setting}}">
+
+            <div *ngIf="loseWeight=='true'">
+                <div *ngIf="goalWeight==0">To keep your weight constant...</div>
+                <div *ngIf="goalWeight>0">To lose {{goalWeightString}} pounds per week...</div>
+            </div>
+
+            <div *ngIf="loseWeight=='false'">
+                <div *ngIf="goalWeight==0">To keep your weight constant...</div>
+                <div *ngIf="goalWeight>0">To gain {{goalWeightString}} pounds per week...</div>
+            </div>
+
+        </ion-item-divider>
+        <ion-item>
+            <ion-range min="0" max="20" step="1" snaps="true" color="{{settingsService.settings.color_setting}}" [(ngModel)]="goalWeight"  (ngModelChange)="changeWeight()">
+                <ion-label range-left>0 lbs</ion-label>
+                <ion-label range-right>2 lbs</ion-label>
+            </ion-range>
+        </ion-item>
+    </ion-list>
+
+    <ion-card>
+        <ion-card-header color="{{settingsService.settings.color_setting}}" text-left>
+            ...Your Calorie Goal Is:
+        </ion-card-header>
+        <ion-card-content>
+            <div id="calorie_goal">{{calorieGoal}}</div>
+        </ion-card-content>
+    </ion-card>
+
+
+</ion-content>

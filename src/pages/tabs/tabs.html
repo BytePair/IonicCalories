@@ -1,0 +1,15 @@
+<ion-header>
+    <ion-navbar color="{{settingsService.settings.color_setting}}">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Calorie Calculator</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<super-tabs toolbarBackground="{{settingsService.settings.color_setting}}" tabsPlacement="bottom" indicatorColor="light" toolbarColor="light">
+  <super-tab [root]="tab1Root" title="Details" icon="home"></super-tab>
+  <super-tab [root]="tab2Root" title="Activity Level" icon="walk"></super-tab>
+  <super-tab [root]="tab3Root" title="Goals" icon="calculator"></super-tab>
+</super-tabs>

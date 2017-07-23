@@ -1,0 +1,52 @@
+<ion-menu [content]="content">
+    <ion-header><!-- no-border -->
+        <ion-toolbar color="{{settingsService.settings.color_setting}}">
+            <ion-title>Settings</ion-title>
+        </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+
+        <!-- height settings -->
+        <ion-item-divider color="{{settingsService.settings.color_setting}}">Height</ion-item-divider>
+
+        <ion-list radio-group [(ngModel)]="settingsService.settings.height_setting" (ngModelChange)="settingsService.setHeight(settingsService.settings.height_setting)">
+            <ion-item>
+                <ion-label>Imperial (feet/inches)</ion-label>
+                <ion-radio value="imperial"></ion-radio>
+            </ion-item>
+            <ion-item>
+                <ion-label>Metric (meters)</ion-label>
+                <ion-radio value="metric"></ion-radio>
+            </ion-item>
+        </ion-list>
+
+        <!-- weight settings -->
+        <ion-item-divider color="{{settingsService.settings.color_setting}}">Weight</ion-item-divider>
+
+        <ion-list radio-group [(ngModel)]="settingsService.settings.weight_setting" (ngModelChange)="settingsService.setWeight(settingsService.settings.weight_setting)">
+            <ion-item>
+                <ion-label>Imperial (pounds)</ion-label>
+                <ion-radio value="imperial"></ion-radio>
+            </ion-item>
+            <ion-item>
+                <ion-label>Metric (kg)</ion-label>
+                <ion-radio value="metric"></ion-radio>
+            </ion-item>
+        </ion-list>
+
+        <!-- ui color -->
+        <ion-item-divider color="{{settingsService.settings.color_setting}}">UI Colors</ion-item-divider>
+        <ion-item>
+            <ion-label color="dark">Main Color</ion-label>
+            <ion-select interface="popover" [(ngModel)]="settingsService.settings.color_setting" (ngModelChange)="settingsService.setColor(settingsService.settings.color_setting)">
+                <ion-option *ngFor="let color of settingsService.colors" value="{{color.id}}">{{color.label}}</ion-option>
+            </ion-select>
+        </ion-item>
+
+    </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
