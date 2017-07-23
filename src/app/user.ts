@@ -10,4 +10,8 @@ export class User {
                             // moderatetely active (moderate exercise/sports 3-5 days/week) : Calorie-Calculation = BMR x 1.55
                             // very active (hard exercise/sports 6-7 days a week) : Calorie-Calculation = BMR x 1.725
                             // extra active (very hard exercise/sports & physical job or 2x training) : Calorie-Calculation = BMR x 1.9
+    loseWeight: string;
+    goalWeight: string;
+    goalWeightString: string;
+    calorieGoal: string           
 }

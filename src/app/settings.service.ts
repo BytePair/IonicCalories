@@ -130,9 +130,9 @@ export class SettingsService {
         });
 
         this.getColor().then((value) => {
-            // if we have no value, set initial color to blue
+            // if we have no value, set initial color to purple
             if (value == null || value == '') {
-                this.setColor('blue').then((value2) => {
+                this.setColor('purple').then((value2) => {
                     this.settings.color_setting = value2;
                 })
             } else {

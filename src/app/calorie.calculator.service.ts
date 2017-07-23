@@ -16,7 +16,11 @@ export class CalorieCalculatorService {
         mHeight: 177,
         iWeight: 220,
         mWeight: 99,
-        activityLevel: 1.2
+        activityLevel: 1.2,
+        loseWeight: 'true',
+        goalWeight: '0',
+        goalWeightString: "0.0",
+        calorieGoal: "2000"
     };
 
 
@@ -59,6 +63,9 @@ export class CalorieCalculatorService {
             }
         }).catch((error) => {
             console.log('error accessing storage in calorie calculator service');
+        }).then(() => {
+            // uncomment to print user details
+            // console.log('user: ' + JSON.stringify(this.user));
         })
     };
 

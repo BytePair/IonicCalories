@@ -3,7 +3,7 @@ import { NavController } from 'ionic-angular';
 
 import { SettingsService } from "../../app/settings.service";
 import { CalorieCalculatorService } from '../../app/calorie.calculator.service';
-import {GoalsPage} from "../goals/goals";
+import { GoalsPage } from "../goals/goals";
 
 @Component({
   selector: 'page-details',
