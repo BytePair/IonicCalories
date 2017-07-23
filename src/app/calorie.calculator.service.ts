@@ -13,6 +13,8 @@ export class CalorieCalculatorService {
         sex: 'male',
         age: 25,
         iHeight: 70,
+        iHeightInches: 10,
+        iHeightFeet: 5,
         mHeight: 177,
         iWeight: 220,
         mWeight: 99,
@@ -27,6 +29,7 @@ export class CalorieCalculatorService {
     // save user details to storage
     setUser() {
         this.storage.set('user', JSON.stringify(this.user)).then((value) => {
+            console.log('stored: ' + JSON.parse(value));
         }).catch((error) => {
             console.log('...error saving user')
         })
@@ -39,6 +42,7 @@ export class CalorieCalculatorService {
                 // return the user
                 resolve(JSON.parse(value));
             }).catch((error) => {
+
                 reject(error);
             })
         });
@@ -48,14 +52,14 @@ export class CalorieCalculatorService {
     constructor(private storage: Storage) {
 
         // uncomment to clean up messes
-        // storage.clear();
+        storage.clear();
 
         storage.get('user').then((value) => {
             // check if result is a real user
             const userString = JSON.parse(value);
             if (userString == null || userString == '') {
                 // if bad result, need to create default user
-                console.log('storing default user...');
+                console.log('storing default user...' + this.user);
                 this.setUser();
             } else {
                 // otherwise load user from storage and overwrite local user
@@ -65,7 +69,7 @@ export class CalorieCalculatorService {
             console.log('error accessing storage in calorie calculator service');
         }).then(() => {
             // uncomment to print user details
-            // console.log('user: ' + JSON.stringify(this.user));
+            console.log('user: ' + JSON.stringify(this.user));
         })
     };
 

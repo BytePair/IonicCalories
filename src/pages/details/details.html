@@ -41,13 +41,13 @@
     <ion-list *ngIf="settingsService.settings.height_setting == 'imperial'">
         <ion-item no-lines>
             <ion-label color="{{settingsService.settings.color_setting}}">Height</ion-label>
-            <ion-select class="details-selector"  interface="popover" [(ngModel)]="height_in_feet" (ngModelChange)="updateHeight()">
+            <ion-select class="details-selector"  interface="popover" [(ngModel)]="calorieCalculatorService.user.iHeightFeet" (ngModelChange)="updateHeight()">
                 <ion-option *ngFor="let ft of feet" value="{{ft}}">{{ft}} feet</ion-option>
             </ion-select>
         </ion-item>
         <ion-item no-lines>
             <ion-label color="{{settingsService.settings.color_setting}}"></ion-label>
-            <ion-select class="details-selector"  interface="popover" [(ngModel)]="height_in_inches" (ngModelChange)="updateHeight()">
+            <ion-select class="details-selector"  interface="popover" [(ngModel)]="calorieCalculatorService.user.iHeightInches" (ngModelChange)="updateHeight()">
                 <ion-option *ngFor="let inch of inches" value="{{inch}}">{{inch}} inches</ion-option>
             </ion-select>
         </ion-item>

@@ -25,12 +25,9 @@ export class DetailsPage implements OnInit {
 
     kgs = Array(148).fill(34).map((x,i) => i+34);
 
-    height_in_feet: number;
-    height_in_inches: number;
-
     getFeetAndInches() {
-        this.height_in_feet = Math.floor(this.calorieCalculatorService.user.iHeight / 12);
-        this.height_in_inches = this.calorieCalculatorService.user.iHeight % 12;
+        this.calorieCalculatorService.user.iHeightFeet = Math.floor(this.calorieCalculatorService.user.iHeight / 12);
+        this.calorieCalculatorService.user.iHeightInches = this.calorieCalculatorService.user.iHeight % 12;
         this.goalsPage.updateCalories();
     }
 
@@ -46,8 +43,8 @@ export class DetailsPage implements OnInit {
 
     updateHeight() {
 
-        const feety = Number.parseInt(this.height_in_feet + '', 10);
-        const inchy = Number.parseInt(this.height_in_inches + '', 10);
+        const feety = Number.parseInt(this.calorieCalculatorService.user.iHeightFeet + '', 10);
+        const inchy = Number.parseInt(this.calorieCalculatorService.user.iHeightInches + '', 10);
 
         if (this.settingsService.settings.height_setting == 'imperial') {
             this.calorieCalculatorService.user.iHeight = (12 * feety) + inchy;
