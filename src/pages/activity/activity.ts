@@ -12,7 +12,7 @@ import { GoalsPage } from "../goals/goals";
 export class ActivityPage {
 
     updateActivity() {
-        console.log('updating activity level to: ' + this.calorieCalculatorService.user.activityLevel);
+        // console.log('updating activity level to: ' + this.calorieCalculatorService.user.activityLevel);
         this.goalsPage.updateCalories();
     }
 

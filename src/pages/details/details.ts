@@ -48,9 +48,9 @@ export class DetailsPage implements OnInit {
 
         if (this.settingsService.settings.height_setting == 'imperial') {
             this.calorieCalculatorService.user.iHeight = (12 * feety) + inchy;
-            this.calorieCalculatorService.user.mHeight = Math.floor(this.calorieCalculatorService.user.iHeight * 2.54);
+            this.calorieCalculatorService.user.mHeight = Math.round(this.calorieCalculatorService.user.iHeight * 2.54);
         } else if (this.settingsService.settings.height_setting == 'metric') {
-            this.calorieCalculatorService.user.iHeight = Math.floor(this.calorieCalculatorService.user.mHeight / 2.54);
+            this.calorieCalculatorService.user.iHeight = Math.round(this.calorieCalculatorService.user.mHeight / 2.54);
         }
 
         this.getFeetAndInches();
@@ -75,10 +75,10 @@ export class DetailsPage implements OnInit {
 
         if (this.settingsService.settings.weight_setting == 'imperial') {
             this.calorieCalculatorService.user.iWeight = parseInt(iWeighty, 10);
-            this.calorieCalculatorService.user.mWeight = Math.floor(this.calorieCalculatorService.user.iWeight / 2.2);
+            this.calorieCalculatorService.user.mWeight = Math.round(this.calorieCalculatorService.user.iWeight / 2.2);
         } else if (this.settingsService.settings.weight_setting == 'metric') {
             this.calorieCalculatorService.user.mWeight = parseInt(mWeighty, 10);
-            this.calorieCalculatorService.user.iWeight = Math.floor(this.calorieCalculatorService.user.mWeight * 2.2);
+            this.calorieCalculatorService.user.iWeight = Math.round(this.calorieCalculatorService.user.mWeight * 2.2);
         }
 
         // make calorieCalculatorService save new results
